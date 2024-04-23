@@ -1,4 +1,5 @@
 import 'package:blog_application_flutter/core/theme/app_pallet.dart';
+import 'package:blog_application_flutter/features/auth/presentation/pages/signin_page.dart';
 import 'package:blog_application_flutter/features/auth/presentation/widgets/auth_field.dart';
 import 'package:blog_application_flutter/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Form(
@@ -36,7 +38,7 @@ class _SignUpPageState extends State<SignUpPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Sign Up.",
+                "Sign Up...",
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
@@ -51,18 +53,23 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 20),
               const GradientButton(text: "Sign Up"),
               const SizedBox(height: 20),
-              RichText(
-                  text: TextSpan(
-                      text: 'Already have an account? ',
-                      style: Theme.of(context).textTheme.titleMedium,
-                      children: const [
-                    TextSpan(
-                        text: 'Sign In',
-                        style: TextStyle(
-                          color: AppPallete.gradient2,
-                          fontWeight: FontWeight.bold,
-                        ))
-                  ]))
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignInPage()));
+                },
+                child: RichText(
+                    text: TextSpan(
+                        text: 'Already have an account? ',
+                        style: Theme.of(context).textTheme.titleMedium,
+                        children: const [
+                      TextSpan(
+                          text: 'Sign In',
+                          style: TextStyle(
+                            color: AppPallete.gradient2,
+                            fontWeight: FontWeight.bold,
+                          ))
+                    ])),
+              )
             ],
           ),
         ),
