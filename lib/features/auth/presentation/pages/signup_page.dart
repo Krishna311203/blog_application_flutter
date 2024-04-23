@@ -38,7 +38,7 @@ class _SignUpPageState extends State<SignUpPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Sign Up.",
+                "Sign Up...",
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
